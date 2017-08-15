@@ -1,0 +1,81 @@
+.container{
+width: 80%;
+margin: 80px auto;
+
+}
+
+.profileContainer{
+    display: block;
+    margin: 20px auto;
+    clear:both;
+}
+.userImage{
+    background-repeat: no-repeat;
+    height: 20vh;
+        height: 150px;
+    background-size: 100% 100%;
+}
+.userProfile{
+    border: 1px solid lightgrey;
+    border-radius: 2px; 
+    display: block;
+    margin: 8px;
+    padding: 0px 5px;
+    min-height: 270px;
+    width: 192px;
+    float: left;
+}
+a.userDetails:hover{
+    cursor: pointer;
+    text-decoration:underline;
+    color: cornflowerblue;
+}
+a.userDetails{
+text-decoration:none;
+color: black;
+    
+}
+.userDetails div{
+    margin: 5px 8px;
+}
+.userProfile label{
+    font-weight: 600;
+}
+.userName{
+    font-weight: 800;
+    font-size: 20px;
+    text-transform: capitalize;
+    min-height: 24px;
+}
+.userLocation span{
+text-transform: capitalize;
+}
+.closeIcon{
+    cursor: pointer;
+    margin-left: 183px;
+    margin-top: -4px;
+    position: absolute;
+z-index: 1;
+}
+.filterPannel{
+float: right;
+margin: 8px;
+}
+
+.filterPannel label{
+    margin: auto 8px auto 8px;
+}
+.sortPannel{
+ float: left;
+ margin: 8px;
+}
+.sortPannel div{
+    cursor: pointer;
+}
+.sortPannel div,.sortPannel label{
+    float: left;
+    margin: auto 8px auto 8px; 
+}
+.selected{
+    color: #03A9F4;
+}

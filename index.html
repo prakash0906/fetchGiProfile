@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en-us">
+   <head>
+      <meta charset="utf-8">
+      <title>Springboard Assignment 2</title>
+      <link rel="stylesheet" href="./style/style.css">
+   </head>
+   <body>
+      <div class="container" ng-app="myApp">
+         <div ng-controller="springboard">
+            <input type="text" ng-model="username" placeholder="github login"/>
+            <button ng-click="add()">Add </button>
+            <hr/>
+            <div class="sortPannel">
+               <label> Sort By: </label>
+               <div ng-class="{'selected':sortType==='name'}" ng-click="sortReverse=!sortReverse;">
+                  <span ng-click="sortType='name';">Name</span>
+                  <span class="ascending" ng-show="sortType==='name' && !sortReverse">&#9650;</span>
+                  <span class="descending" ng-show="sortType==='name' && sortReverse">&#9660;</span>
+               </div>
+               <div ng-class="{'selected':sortType==='location'}" ng-click="sortReverse=!sortReverse;">
+                  <span ng-click="sortType='location';">Location</span>
+                  <span class="ascending" ng-show="sortType==='location' && !sortReverse" >&#9650;</span>
+                  <span class="descending" ng-show="sortType==='location' && sortReverse">&#9660;</span>
+               </div>
+               <div ng-class="{'selected':sortType==='followers'}" ng-click="sortReverse=!sortReverse;">
+                  <span ng-click="sortType='followers';"> Followers<span>
+                  <span class="ascending" ng-show="sortType==='followers' && !sortReverse">&#9650;</span>
+                  <span class="descending" ng-show="sortType==='followers' && sortReverse">&#9660;</span>
+               </div>
+            </div>
+            <div class="filterPannel">
+               <label> Filter: </label>
+               <input type="text" ng-model="search" placeholder="Filter"/>
+            </div>
+            <div class="profileContainer">
+               <div class="userProfile" ng-repeat="user in arrProfiles| filter:search| orderBy:sortType:sortReverse">
+                  <div class="closeIcon" ng-click="remove(user)">&#10006;</div>
+                  <div class="userImage" style="background-image:url({{user.avatar_url}})">
+                  </div>
+                  <a ng-href="{{user.html_url}}" target="_blank" class="userDetails">
+                     <div class="userName" ng-bind="user.name"></div>
+                     <div class="userLocation">
+                        <label> Location:</label>		
+                        <span ng-bind="user.location"></span>
+                     </div>
+                     <div>
+                        <label> Followers:</label>		
+                        <span class="userFollowers" ng-bind="user.followers"></span>
+                     </div>
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="./node_modules/angular/angular.min.js"></script>
+      <script src="./script/script.js"></script>
+   </body>
+</html>
